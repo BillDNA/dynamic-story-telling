@@ -1,6 +1,10 @@
 
 source 'https://rubygems.org'
 
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise', '~> 4.2'
+
 gem 'rails',        '5.0.1'
 gem 'puma',         '3.4.0'
 gem 'sass-rails',   '5.0.6'
