@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170107064242) do
+ActiveRecord::Schema.define(version: 20170111230938) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20170107064242) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "adjectives", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -41,6 +45,19 @@ ActiveRecord::Schema.define(version: 20170107064242) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "ajdective_alignments", force: :cascade do |t|
+    t.integer "alignment_id"
+    t.integer "adjectives_id"
+    t.boolean "is_valid_alignment", default: false
+    t.index ["adjectives_id"], name: "index_ajdective_alignments_on_adjectives_id"
+    t.index ["alignment_id"], name: "index_ajdective_alignments_on_alignment_id"
+  end
+
+  create_table "alignments", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
   end
 
 end
